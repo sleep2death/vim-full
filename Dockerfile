@@ -9,7 +9,7 @@ ENV UID="1000" \
     UHOME="/home/dev"
 # Used to configure YouCompleteMe
 ENV GOROOT="/usr/lib/go"
-ENV GOPATH="$UHOME/go"
+ENV GOPATH="$UHOME/workspace/go"
 ENV GOBIN="$GOPATH/bin"
 ENV PATH="$PATH:$GOBIN:$GOPATH/bin"
 ENV TERM=xterm-256color
@@ -20,8 +20,10 @@ RUN apk --no-cache add sudo \
 # Create HOME dir
     && mkdir -p "${UHOME}" \
     && mkdir -p "${UHOME}/.vim/bundle" \
+    && mkdir -p "${UHOME}/workspace" \
     && chown "${UID}":"${GID}" "${UHOME}" \
     && chown "${UID}":"${GID}" "${UHOME}/.vim/bundle" \
+    && chown "${UID}":"${GID}" "${UHOME}/workspace" \
 # Create user
     && echo "${UNAME}:x:${UID}:${GID}:${UNAME},,,:${UHOME}:${SHELL}" \
     >> /etc/passwd \
