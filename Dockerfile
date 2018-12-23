@@ -31,10 +31,9 @@ RUN apk --no-cache add sudo \
 USER $UNAME
 
 COPY vimrc $UHOME/.vimrc
-RUN sudo chown -R "${UID}":"${GID}" "${UHOME}" \
+RUN sudo chown -R "${UNAME}":"${GNAME}" "${UHOME}" \
     && git clone https://github.com/VundleVim/Vundle.vim.git $UHOME/.vim/bundle/Vundle.vim \
     && vim +PluginInstall +qall \
     && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true \
     && rm -rf \
-    $GOPATH/src/* \
     && cd $UHOME && find . | grep "\.git/" | xargs rm -rf \
