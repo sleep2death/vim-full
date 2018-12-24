@@ -26,7 +26,7 @@ Plugin 'tpope/vim-commentary'
 
 Plugin 'itchyny/lightline.vim'
 
-" Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 " Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'altercation/vim-colors-solarized'
